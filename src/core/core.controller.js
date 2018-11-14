@@ -571,6 +571,9 @@ module.exports = function(Chart) {
 				return;
 			}
 
+			me.drawDatasets(easingValue);
+			me._drawTooltip(easingValue);
+			
 			// Draw all the scales
 			helpers.each(me.boxes, function(box) {
 				box.draw(me.chartArea);
@@ -580,8 +583,6 @@ module.exports = function(Chart) {
 				me.scale.draw();
 			}
 
-			me.drawDatasets(easingValue);
-			me._drawTooltip(easingValue);
 
 			plugins.notify(me, 'afterDraw', [easingValue]);
 		},
